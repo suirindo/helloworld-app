@@ -5,7 +5,7 @@ export default function Home(): JSX.Element {
   const test = 1
   return (
     <App>
-      <p>できる！</p>
+      <p>できる!</p>
     </App>
   )
 }
