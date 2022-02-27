@@ -2,6 +2,7 @@ import React from 'react'
 import App from '@/App'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { BirdHouseLayout } from '@/atoms/layouts/BirdHouseLayout'
 
 type StatusPageProps = { status: Status }
 
@@ -46,15 +47,15 @@ export const getServerSideProps: GetServerSideProps<StatusPageProps> = async (
 }
 
 const StatusPage: FC<StatusPageProps> = (props) => {
-  return (
-    <App>
+  ;<BirdHouseLayout>
+    <>
       <Head>
-        <title>{props.body}</title>
-        <meta property="og:title" content={props.body} key="ogtitle" />
+        <title>{props.status.body}</title>
+        <meta property="og:title" content={props.status.body} key="ogtitle" />
       </Head>
-      <h1>{props.body}</h1>
-      <p>{props.author}</p>
-    </App>
-  )
+      <StatusCard {...props.status} linkEnabled={false} />
+    </>
+  </BirdHouseLayout>
 }
+
 export default StatusPage
